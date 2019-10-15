@@ -1,0 +1,37 @@
+<%- include('header') %>
+<h1 style="text-align: center;">用户中心</h1>
+<div class="ui grid">
+  <div class="four wide column"></div>
+  <div class="eight wide column">
+    <form class="ui form segment" method="post" enctype="multipart/form-data">
+      <div>
+        <div class="ui grid">
+            <div class="four wide column">
+                <label>头像</label>
+              <!-- <a class="avatar avatar-link"
+                 href="/posts?author=<%= user._id %>"
+                 data-title="<%= user.name %> | <%= ({m: '男', f: '女', x: '保密'})[user.gender] %>"
+                 data-content="<%= user.bio %>"> -->
+                <img class="avatar" src="/img/<%= user.avatar %>">
+              </a>
+            </div>
+        </div>
+      <div>
+        <label>用户名</label>
+        <input value="<%= user.name %>" type="text" name="name" readonly="true">
+      </div>
+      <div>
+        <label>性别</label>
+        <input value="<%= ({m: '男', f: '女', x: '保密'})[user.gender] %>" type="text" name="sex" readonly="true">        
+      </div>
+      <div>
+        <label>个人简介</label>
+        <textarea name="bio" rows="5"><%= user.bio %></textarea>
+      </div>
+      <br>
+      <input type="submit" class="ui button fluid" value="修改">
+    </form>
+  </div>
+</div>
+
+<%- include('footer') %>

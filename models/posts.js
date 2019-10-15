@@ -87,6 +87,7 @@ getRawPostById: function getRawPostById (postId) {
 
 // 通过文章 id 更新一篇文章
 updatePostById: function updatePostById (postId, data) {
+  console.log(data)
   return Post.update({ _id: postId }, { $set: data }).exec()
 },
 
