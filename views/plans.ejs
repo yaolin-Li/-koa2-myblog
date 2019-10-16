@@ -1,0 +1,7 @@
+<%- include('header') %>
+
+<% plans.forEach(function (plan) { %>
+    <%- include('components/plan-content', { plan: plan }) %>
+  <% }) %>
+
+<%- include('footer') %>

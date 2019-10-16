@@ -1,0 +1,40 @@
+<div class="post-content">
+    <div class="ui grid">
+      <div class="four wide column">
+        <a class="avatar avatar-link"
+           href="/plans?author=<%= plan.author._id %>"
+           data-title="<%= plan.author.name %> | <%= ({m: '男', f: '女', x: '保密'})[plan.author.gender] %>"
+           data-content="<%= plan.author.bio %>">
+          <img class="avatar" src="/img/<%= plan.author.avatar %>">
+        </a>
+      </div>
+  
+      <div class="eight wide column">
+        <div class="ui segment">
+          <h3><a href="/plans/<%= plan._id %>"><%= plan.title %></a></h3>
+          <pre><%- plan.content %></pre>
+          <pre>预计完成时间：<%- plan.time %></pre>
+          <div>
+            <span class="tag"><%= plan.created_at %></span>
+            <span class="tag right">
+              <span>浏览(<%= plan.pv || 0 %>)</span>
+              <span>留言(<%= plan.commentsCount || 0 %>)</span>
+  
+              <% if (user && plan.author._id && user._id.toString() === plan.author._id.toString()) { %>
+                <div class="ui inline dropdown">
+                  <div class="text"></div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item"><a href="/plans/<%= plan._id %>/edit">编辑</a></div>
+                    <div class="item"><a href="/plans/<%= plan._id %>/remove">删除</a></div>
+                  </div>
+                </div>
+              <% } %>
+  
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
